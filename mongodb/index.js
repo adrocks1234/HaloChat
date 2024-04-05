@@ -11,12 +11,13 @@ export const connectToDB = async () => {
   }
 
   try {
-    await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL, {
+      dbName: "HaloChat"
+    });
 
     isConnected = true;
 
     console.log("MongoDB is connected successfully");
-
   } catch (error) {
     console.log(error);
   }
